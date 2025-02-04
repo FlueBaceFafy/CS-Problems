@@ -34,3 +34,20 @@ Only one valid answer exists.
 Follow-up: Can you come up with an algorithm that is less than O(n2) time complexity?
 
 */
+
+public class Solution {
+    public int[] TwoSum(int[] nums, int target) 
+    {
+         var dic = new Dictionary<int, int>();
+
+        for (int i = 0; i < nums.Length; i++)
+        {
+            if (dic.ContainsKey(nums[i]))
+                 return new int[] { dic[nums[i]], i };
+            else
+                dic[target - nums[i]] = i;
+        }
+
+        return new int[] { };
+    }
+}
